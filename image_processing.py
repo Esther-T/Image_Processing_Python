@@ -5,8 +5,8 @@ IMG_PATH = r"C:\Users\lin.tan\Pictures\Saved Pictures\test.jpg"
 imgArray = cv.imread(IMG_PATH)
 
 # with OpenCV, image will appear in BGR mode instead of RGB
-# plt.imshow(imgArray)
-# plt.show()
+plt.imshow(imgArray)
+plt.show()
 
 # converts image from BGR to RGB
 convertedArray = cv.cvtColor(imgArray, cv.COLOR_BGR2RGB)
@@ -62,4 +62,24 @@ plt.figure(figsize=(15,8))
 plt.imshow(convertedArray[600:900,350:1200,0], cmap="Greys_r")
 plt.show()
 
+# get total number of pixels in the image
+# multiple number of pixels on the long side by num pixels on short side
+print(convertedArray.shape[0]* convertedArray.shape[1])
+
+# extract a vertical and a horizontal section from the image
+plt.subplots(figsize=(15,10))
+plt.imshow(convertedArray)
+plt.axvline(1000, color="yellow") # draw a line from x=1000
+plt.axhline(600, color="orange") # draw a line from y=600
+plt.show()
+
+# extract the two profiles
+verSection = convertedArray[:,1000,:]
+plt.figure(figsize=(16,5))
+plt.plot(verSection[:,0], label="Red", color="#e74c3c")
+plt.plot(verSection[:,1], label="Green", color="#16a085")
+plt.plot(verSection[:,2], label="Blue", color="#3498db")
+plt.xlabel("X")
+plt.legend()
+plt.show()
 
