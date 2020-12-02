@@ -1,7 +1,7 @@
 import cv2 as cv
 import matplotlib.pyplot as plt
 
-IMG_PATH = # insert image path here
+IMG_PATH = r"C:\Users\lin.tan\Pictures\Saved Pictures\test.jpg"
 imgArray = cv.imread(IMG_PATH)
 
 # with OpenCV, image will appear in BGR mode instead of RGB
